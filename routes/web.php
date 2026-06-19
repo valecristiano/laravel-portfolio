@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,11 +18,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth', 'verified'])
-->name("admin.")
-->prefix("admin")
-->group(function () {
-    Route::get('/index', [DashboardController::class, 'index'])->name('index');
-});
-
 require __DIR__.'/auth.php';
+
+Route::resource('projects', ProjectController::class);
