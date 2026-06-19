@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Projects</title>
     @vite(['resources/js/app.js', 'resources/sass/app.scss'])
 </head>
 <body>
@@ -21,6 +21,8 @@
                 <th scope="col">Cliente</th>
                 <th scope="col">Data Completamento</th>
                 <th scope="col">Descrizione</th>
+                <th scope="col">Link</th>
+
             </tr>
         </thead>
         <tbody>
@@ -38,6 +40,9 @@
                     </td>
                     <td>
                         <small class="text-muted">{{ Str::limit($project->description, 50) }}</small>
+                    </td>
+                    <td>
+                        <a href="{{route('projects.show', $project->id)}}">Clicca qui</a>
                     </td>
                 </tr>
             @endforeach
