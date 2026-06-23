@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crea Nuovo Progetto</title>
+    <title>Modifica il Progetto</title>
     
     @vite(['resources/js/app.js', 'resources/sass/app.scss'])
 </head>
@@ -18,53 +18,54 @@
 
         <div class="card shadow-sm">
             <div class="card-header bg-dark text-white py-3">
-                <h1 class="h4 mb-0">Crea Nuovo Progetto</h1>
+                <h1 class="h4 mb-0">Modifica il Progetto</h1>
             </div>
 
             <div class="card-body p-4">
-                <form action="{{ route('projects.store') }}" method="POST">
+                <form action="{{ route('projects.update', $project) }}" method="POST">
                     @csrf
+                    @method('PUT')
 
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label for="name" class="form-label fw-bold small text-uppercase text-muted">Nome Progetto *</label>
-                            <input type="text" name="name" id="name" class="form-control" required maxlength="100">
+                            <input type="text" name="name" id="name" class="form-control" required maxlength="100" value="{{ $project->name }}">
                         </div>
 
                         <div class="col-md-6">
                             <label for="tech" class="form-label fw-bold small text-uppercase text-muted">Tecnologia Usata *</label>
-                            <input type="text" name="tech" id="tech" class="form-control" required maxlength="100" placeholder="Es. Laravel, React...">
+                            <input type="text" name="tech" id="tech" class="form-control" required maxlength="100" value="{{ $project->tech }}" >
                         </div>
 
                         <div class="col-md-6">
                             <label for="client" class="form-label fw-bold small text-uppercase text-muted">Cliente</label>
-                            <input type="text" name="client" id="client" class="form-control">
+                            <input type="text" name="client" id="client" class="form-control" value="{{ $project->client }}">
                         </div>
 
                         <div class="col-md-6">
                             <label for="completed" class="form-label fw-bold small text-uppercase text-muted">Data Completamento *</label>
-                            <input type="datetime-local" name="completed" id="completed" class="form-control" required>
+                            <input type="datetime-local" name="completed" id="completed" class="form-control" required value="{{ $project->completed }}">
                         </div>
 
                         <div class="col-md-6">
                             <label for="url_git" class="form-label fw-bold small text-uppercase text-muted">Link Repository GitHub</label>
-                            <input type="url" name="url_git" id="url_git" class="form-control" placeholder="https://github.com/...">
+                            <input type="text" name="url_git" id="url_git" class="form-control" value="{{ $project->url_git }}">
                         </div>
 
                         <div class="col-md-6">
                             <label for="url_img" class="form-label fw-bold small text-uppercase text-muted">Link Immagine Anteprima</label>
-                            <input type="url" name="url_img" id="url_img" class="form-control" placeholder="https://...">
+                            <input type="text" name="url_img" id="url_img" class="form-control" value="{{ $project->url_img}}">
                         </div>
 
                         <div class="col-12">
                             <label for="description" class="form-label fw-bold small text-uppercase text-muted">Descrizione del Progetto *</label>
-                            <textarea name="description" id="description" rows="5" class="form-control" required></textarea>
+                            <textarea name="description" id="description" rows="5" class="form-control" required>{{ $project->description }}"</textarea>
                         </div>
                     </div>
 
                     <div class="mt-4 d-flex justify-content-end gap-2">
                         <a href="{{ route('projects.index') }}" class="btn btn-light border">Annulla</a>
-                        <button type="submit" class="btn btn-dark">Crea Progetto</button>
+                        <button type="submit" class="btn btn-dark">Modifica Progetto</button>
                     </div>
                 </form>
             </div>
