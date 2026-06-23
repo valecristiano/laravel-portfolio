@@ -44,7 +44,7 @@
 
                         <div class="col-md-6">
                             <label for="completed" class="form-label fw-bold small text-uppercase text-muted">Data Completamento *</label>
-                            <input type="datetime-local" name="completed" id="completed" class="form-control" required value="{{ $project->completed }}">
+                            <input type="date" name="completed" id="completed" class="form-control" required value="{{ $project->completed }}">
                         </div>
 
                         <div class="col-md-6">

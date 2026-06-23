@@ -43,17 +43,17 @@
 
                         <div class="col-md-6">
                             <label for="completed" class="form-label fw-bold small text-uppercase text-muted">Data Completamento *</label>
-                            <input type="datetime-local" name="completed" id="completed" class="form-control" required>
+                            <input type="date" name="completed" id="completed" class="form-control" required>
                         </div>
 
                         <div class="col-md-6">
                             <label for="url_git" class="form-label fw-bold small text-uppercase text-muted">Link Repository GitHub</label>
-                            <input type="url" name="url_git" id="url_git" class="form-control" placeholder="https://github.com/...">
+                            <input type="text" name="url_git" id="url_git" class="form-control" placeholder="https://github.com/...">
                         </div>
 
                         <div class="col-md-6">
                             <label for="url_img" class="form-label fw-bold small text-uppercase text-muted">Link Immagine Anteprima</label>
-                            <input type="url" name="url_img" id="url_img" class="form-control" placeholder="https://...">
+                            <input type="text" name="url_img" id="url_img" class="form-control" placeholder="https://...">
                         </div>
 
                         <div class="col-12">
