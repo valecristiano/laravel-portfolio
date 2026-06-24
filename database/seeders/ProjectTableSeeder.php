@@ -14,9 +14,10 @@ class ProjectTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        for($i=0;$i<4;$i++) {
+        for($i=0;$i<8;$i++) {
             $newProject = New Project();
 
+            $newProject->type_id = rand(1,4);
             $newProject->name = $faker->name();
             $newProject->tech = $faker->name();
             $newProject->completed = $faker->date();
