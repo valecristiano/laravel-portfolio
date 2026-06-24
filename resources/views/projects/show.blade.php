@@ -19,7 +19,7 @@
     <div class="card shadow-sm">
         <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center py-3">
             <h1 class="h3 mb-0">{{ $project->name }}</h1>
-            <span class="badge bg-light text-dark fs-6">{{ $project->tech }}</span>
+            <span class="badge bg-light text-dark fs-6">{{ $project->type->name }}</span>
         </div>
 
         <div class="card-body p-4">

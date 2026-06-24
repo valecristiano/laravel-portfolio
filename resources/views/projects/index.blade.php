@@ -18,6 +18,7 @@
             <tr>
                 <th scope="col">Nome Progetto</th>
                 <th scope="col">Tecnologia</th>
+                
                 <th scope="col">Cliente</th>
                 <th scope="col">Data Completamento</th>
                 <th scope="col">Descrizione</th>
@@ -30,13 +31,14 @@
                 <tr>
                     <td><strong>{{ $project->name }}</strong></td>
                     <td>
-                        <span class="badge bg-secondary">{{ $project->tech }}</span>
+                        <span class="badge bg-secondary">{{ $project->type->name }}</span>
                     </td>
+                    
                     <td>
                         {{ $project->client ?? 'N/D' }}
                     </td>
                     <td>
-                        {{ \Carbon\Carbon::parse($project->completed)->format('d/m/Y H:i') }}
+                        {{ \Carbon\Carbon::parse($project->completed)->format('d/m/Y') }}
                     </td>
                     <td>
                         <small class="text-muted">{{ Str::limit($project->description, 50) }}</small>

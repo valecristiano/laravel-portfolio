@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -22,7 +23,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        $types = Type::all();
+        return view('projects.create', compact('types'));
     }
 
     /**
@@ -33,8 +35,9 @@ class ProjectController extends Controller
         $data= $request->all();
 
         $newProject = New Project();
+
+        $newProject->type_id = $data['type_id'];
         $newProject->name = $data['name'];
-        $newProject->tech = $data['tech'];
         $newProject->completed = $data['completed'];
         $newProject->client = $data['client'];
         $newProject->description = $data['description'];
@@ -59,7 +62,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('projects.edit', compact('project') );
+          $types = Type::all();
+        return view('projects.edit', compact('project', 'types') );
     }
 
     /**
@@ -70,7 +74,7 @@ class ProjectController extends Controller
         $data= $request->all();
 
         $project->name = $data['name'];
-        $project->tech = $data['tech'];
+        $project->type_id = $data['type_id'];
         $project->completed = $data['completed'];
         $project->client = $data['client'];
         $project->description = $data['description'];

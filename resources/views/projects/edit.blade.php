@@ -33,8 +33,12 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="tech" class="form-label fw-bold small text-uppercase text-muted">Tecnologia Usata *</label>
-                            <input type="text" name="tech" id="tech" class="form-control" required maxlength="100" value="{{ $project->tech }}" >
+                            <label for="type_id" class="form-label fw-bold small text-uppercase text-muted">Tecnologia Usata *</label>
+                            <select name="type_id" id="type_id">
+                                @foreach ( $types as $type )                               
+                                <option value="{{ $type->id}}" {{ $project->type_id == $type->id ? 'selected' : '' }}> {{$type->name}} </option>
+                                @endforeach                               
+                            </select>
                         </div>
 
                         <div class="col-md-6">

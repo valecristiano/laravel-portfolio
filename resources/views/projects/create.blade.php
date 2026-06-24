@@ -32,8 +32,13 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="tech" class="form-label fw-bold small text-uppercase text-muted">Tecnologia Usata *</label>
-                            <input type="text" name="tech" id="tech" class="form-control" required maxlength="100" placeholder="Es. Laravel, React...">
+                            
+                            <label for="type_id" class="form-label fw-bold small text-uppercase text-muted">Tecnologia Usata *</label>
+                            <select name="type_id" id="type_id">
+                                @foreach ( $types as $type )
+                                <option value="{{ $type->id}}">{{$type->name}}</option>
+                                @endforeach                              
+                            </select>
                         </div>
 
                         <div class="col-md-6">
