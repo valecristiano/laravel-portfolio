@@ -34,6 +34,11 @@
             @endforeach
         </tbody>
     </table>
+    <div class="mb-4">
+        <a href="{{ route('types.create') }}" class="btn btn-outline-secondary btn-sm">
+            Aggiungi un progetto
+        </a>
+         </div>
 </div>
 </section>
 </body>

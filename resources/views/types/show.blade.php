@@ -34,7 +34,11 @@
 
             </div>
         </div>
-       
+        <div class="mb-4">
+        <a href="{{ route('types.edit', $type) }}" class="btn btn-outline-secondary btn-sm">
+            Modifica progetto
+        </a>
+         </div>
     </div>
 </div>
     </section>
