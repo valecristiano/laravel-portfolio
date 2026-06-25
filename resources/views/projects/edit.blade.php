@@ -41,6 +41,14 @@
                             </select>
                         </div>
 
+                         <div class="col-md-6">                          
+                              @foreach ( $technologies as $technology )
+                              <input type="checkbox" name="technologies[]" value="{{ $technology->id}}" id="tech-{{ $technology->id}}"   {{ $project->technologies->contains($technology->id) ? 'checked' : '' }} >
+                              <label for="tech-{{ $technology->id}}" class="form-label fw-bold small text-uppercase text-muted">{{ $technology->name}}</label>
+                            @endforeach                              
+                            </select>
+                        </div>
+
                         <div class="col-md-6">
                             <label for="client" class="form-label fw-bold small text-uppercase text-muted">Cliente</label>
                             <input type="text" name="client" id="client" class="form-control" value="{{ $project->client }}">
