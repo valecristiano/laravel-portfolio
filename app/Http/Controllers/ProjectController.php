@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view('projects.create', compact('types'));
+        $technologies = Technology::all();
+        return view('projects.create', compact('types', 'technologies'));
     }
 
     /**
@@ -45,6 +47,11 @@ class ProjectController extends Controller
         $newProject->url_git = $data['url_git'];
 
         $newProject->save();
+
+        if($request->has('technologies')) {
+   
+            $newProject->technologies()->attach($data['technologies']);
+        }
 
         return redirect()->route('projects.show', $newProject);
     }

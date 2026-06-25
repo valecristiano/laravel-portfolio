@@ -40,6 +40,14 @@
                                 @endforeach                              
                             </select>
                         </div>
+                          <div class="col-md-6">
+                            
+                              @foreach ( $technologies as $technology )
+                              <input type="checkbox" id="tech-{{ $technology->id}}" name="technologies[]" value="{{ $technology->id}}" >
+                              <label for="tech-{{ $technology->id}}" class="form-label fw-bold small text-uppercase text-muted">{{ $technology->name}}</label>
+                            @endforeach                              
+                            </select>
+                        </div>
 
                         <div class="col-md-6">
                             <label for="client" class="form-label fw-bold small text-uppercase text-muted">Cliente</label>

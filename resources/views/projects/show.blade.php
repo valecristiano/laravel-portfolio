@@ -39,6 +39,15 @@
                     </div>
                 </div>
 
+                <div class="mb-3">
+                    @if (count($project->technologies) > 0 )
+                    @foreach ($project->technologies as $technology )
+                    <span class="badge bg-warning"> {{ $technology->name }}</span>
+                    @endforeach
+                    @endif
+
+                </div>
+
                 <div class="col-md-8 ps-md-4">
                     <label class="text-muted d-block small text-uppercase fw-bold mb-2">Descrizione del Progetto</label>
                     <p class="lead text-secondary" style="white-space: pre-line;">
