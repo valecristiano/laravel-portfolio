@@ -24,3 +24,29 @@ Nella pagina di dettaglio del progetto, mostriamo il Type a cui il progetto appa
 Nei form di creazione e modifica dei progetti, dobbiamo permettere di associare un type al progetto stesso. Gestiamo inoltre il salvataggio di questa associazione progetto-tipologia nel controller ProjectController
 Bonus
 Aggiungere le operazioni CRUD anche per il model Type, in modo da gestire le tipologie di progetto direttamente dal pannello di amministrazione.
+
+4. Completiamo il nostro portfolio inserendo anche l'entità Technology, che rappresenta i linguaggi utilizzati nei progetti e che avrà una relazione molti a molti con i progetti stessi.
+   Svolgimento
+   In questo esercizio dovremo svolgere i diversi step che ci permetteranno di implementare il modello Technology e la sua relazione con i progetti:
+   Creiamo il modello Technology, la migration per la sua tabella ed un seeder.
+   Creiamo anche la migration per modificare la tabella projects, che dovrà ora contenere la chiave esterna type_id
+   Sarà inoltre necessario creare la tabella pivot project_technology, per gestire la relazione molti a molti
+   Nei modelli Technology e Project, dovremo aggiungere i metodi corretti per rappresentare la relazione molti a molti
+   Nei form di creazione e modifica dei progetti, dobbiamo permettere di associare una o più tecnologie al progetto stesso. Gestiamo inoltre il salvataggio di queste associazioni progetto-tecnologie nel controller ProjectController
+   All'interno della pagina di dettaglio di un modello, dovremo visualizzare in qualche modo la lista delle tecnologie utilizzate nel singolo progetto.
+   Bonus
+   Aggiungere le operazioni CRUD anche per il modello Technology, in modo da gestire le tipologie di progetto direttamente dal pannello di amministrazione.
+   Potremmo modificare i seeder in modo tale da creare già le associazioni tra tecnologia e progetti quando viene popoliamo il database.
+
+5. Come ultimo tassello, possiamo provare ad esporre delle API che ci permettano di inviare all'esterno i dati relativi ai nostri progetti!
+   Svolgimento
+   In questo esercizio dovremo preparare delle API a cui un'app esterna possa agganciarsi per ricevere informazioni sui nostri progetti.
+   Innanzitutto, pubblichiamo il file routes/api.php col comando php artisan route:publish api
+   Creiamo poi un controller dedicato alle API dei progetti, col comando php artisan make:controller Api/ProjectController e inseriamo all'interno i metodi per restituire l'elenco dei progetti ed un singolo progetto, in formato JSON
+   Testiamo su Postman le nostre due rotte per verificare che restituiscano correttamente i JSON che abbiamo predisposto
+   Predisponiamo le configurazioni CORS di Laravel nel file cors.php per autorizzare l'applicazione esterna ad effettuare delle chiamate al nostro backend.
+   Bonus
+   Nome repo: laravel-portfolio-bonus
+   Prepariamo (in un repo a parte) una piccola applicazione frontend con React, che permetta ad un utente non loggato di vedere la lista dei nostri progetti in Home e di poter poi andare a visualizzare il singolo progetto in una pagina di dettaglio, sfruttando le API prodotte in Laravel!
+
+Non dimentichiamo di predisporre le configurazioni CORS di Laravel nel file cors.php per autorizzare l'applicazione esterna ad effettuare delle chiamate al nostro backend!
